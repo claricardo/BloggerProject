@@ -1,0 +1,41 @@
+// Place all the styles related to the articles controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+
+#articles li span {
+	position: relative;
+	bottom: 20px;
+	float: right;
+	
+}
+
+p img {
+	padding: 15px 0px 10px;
+}
+
+#tab-popular, #tab-monthly {
+	margin-top: 30px;
+}
+	
+td#rank, td#count, td#date {
+	text-align: center;
+}
+
+span#articles-notfound {
+	display: inline-block;
+	margin: 20px 0 20px;
+	font-size: 1.25em;
+	font-style: italic;	
+}
+
+span#view-count {
+	display: block;
+	margin: 10px 0 25px;
+	font-size: 1.2em;
+	font-style: italic;	
+}
+
+h3#comments {
+	font-size: 1.5em;
+}

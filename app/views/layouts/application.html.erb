@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Blogger</title>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= csrf_meta_tags %>
+  <%= auto_discovery_link_tag(:rss, "http://" + request.host_with_port + "/rss_feed") %>
+</head>
+<body>
+	<p class="flash">
+		<%= flash.notice != nil ? flash.notice : (flash.alert != nil ? flash.alert : '') %>
+	</p>
+	<div class="left_container">
+		<div class="navbar">
+			<div id="nav_articles">
+				<h4>Articles</h4>
+				<ul>
+					<li><%= link_to "All articles", articles_path %></li>
+					<li><%= link_to "Most popular",  popular_path %></li>
+				</ul>
+				<h6>Monthly List</h6>
+				<ul>
+					<% 12.times do |month_idx| %>
+						<li><%= link_to $months[month_idx], monthly_path(month_idx) %></li>
+					<% end %>
+				</ul>
+			</div>
+			<div id="nav_tags">
+				<h4>Tags</h4>
+				<%= link_to "All tags", tags_path %>
+			</div>
+			<div id="nav_authors">
+				<% if logged_in? %>
+					<h4>Authors</h4>
+					<%= link_to "All authors", authors_path %>
+				<% end %>
+			</div>
+		</div> 
+		<div id="rss-feed">
+			<%= image_tag("rss-feed-48.png", size: "24x24", id: "rss-img" ) %>
+			<%= link_to "RSS Feed", rss_feed_url(:rss), :target => "_blank", :id => "rss-link" %>
+		</div>
+	</div>
+	<div id="container">
+		<div id="content">
+			<%= yield %>
+			<br><br>
+			<hr>
+			<h6>
+				<% if logged_in? %>
+					<%= "Logged in as #{current_user.email}" %>
+					<%= link_to "(Logout)", logout_path %>
+				<% else %>
+					<%= link_to "(Login)", login_path %>
+				<% end %>
+			</h6>
+		</div>
+	</div>
+</body>
+</html>

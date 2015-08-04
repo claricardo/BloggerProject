@@ -1,0 +1,32 @@
+// Place all the styles related to the Authors controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+
+tr th {
+	width: auto;
+	padding-right: 15px;
+	padding-bottom: 10px;
+	font-family: Helvetica, sans-serif;
+	font-size: 1.25em;
+	font-weight: bold;
+}
+
+tr td {
+	width: auto;
+	padding-right: 15px;
+	padding-bottom: 5px;
+	font-family: Helvetica, sans-serif;
+	font-size: 1em;
+}
+
+.link {
+	padding-right: 8px;
+}
+
+span#authors-notfound {
+	display: inline-block;
+	margin: 25px 0 20px;
+	font-size: 1.25em;
+	font-style: italic;	
+}

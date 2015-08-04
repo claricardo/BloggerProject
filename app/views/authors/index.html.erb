@@ -1,0 +1,30 @@
+<h1>Listing authors</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Username</th>
+      <th>Email</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @authors.each do |author| %>
+      <tr>
+        <td><%= author.username %></td>
+        <td><%= author.email %></td>
+        <td class="link"><%= link_to 'Show', author %></td>
+        <td class="link"><%= link_to 'Edit', edit_author_path(author) %></td>&nbsp;
+        <td class="link"><%= link_to 'Destroy', author, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<% if @authors.count == 0 %>
+<span id="authors-notfound"><%= "No authors found" %></span>
+<% end %>
+
+<br>
+<%= link_to 'New Author', new_author_path %>

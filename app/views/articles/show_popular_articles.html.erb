@@ -1,0 +1,27 @@
+<h1>Most popular articles</h1>
+
+<div id="tab-popular">
+<table>
+  <thead>
+    <tr>
+	  <th>Rank</th>
+      <th>Title</th>
+      <th>Author</th>
+	  <th>Times viewed</th>
+      <th colspan="4"></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @articles.zip(1..@articles.count).each do |article,rank| %>
+      <tr>
+		<td id="rank"><%= rank %></td>
+        <td><%= link_to article.title, article_path(article) %></td>
+        <td><%= article.author.username if article.author != nil%></td>
+        <td id="count"><%= article.view_count %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+</div>
+
+<span id="articles-notfound"><%= "No articles found" if @articles.count == 0 %></span>

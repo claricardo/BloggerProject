@@ -1,0 +1,32 @@
+<h1><%= @article.title %></h1>
+<% if @article.author != nil %>
+	<h2>Authored by <%= @article.author.username %></h2>
+<% end %>
+<p>
+	Tags:
+	<% @article.tags.each do |tag| %>
+		<%= link_to tag.name, tag_path(tag) %>
+	<% end %>
+</p>
+<p>
+	<% if @article.image.exists? %>
+		<%= image_tag @article.image.url(:medium) %><br>
+	<% end %>
+</p>
+<p><%= @article.body %></p>
+<br>
+
+<% if logged_in? && (@article.author_id == current_user.id) %>
+	<%= link_to "Edit", edit_article_path(@article) %>
+	&nbsp;
+	<%= link_to "Delete", article_path(@article), method: :delete, data: {confirm: "Really delete the article?"} %>
+<% end %>
+
+<span id="view-count">This article has been viewed <%= @article.view_count %> <%= 'time'.pluralize(@article.view_count) %></span>
+
+<h3 id="comments">Comments (<%= @article.comments.size %>)</h3>
+<%= render partial: 'articles/comment', collection: @article.comments %>
+
+<%= render partial: 'comments/form' %>
+
+<%= link_to "<< Back to Articles List", articles_path %>

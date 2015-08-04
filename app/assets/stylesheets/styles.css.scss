@@ -1,0 +1,52 @@
+$primary_color: #DDD;
+
+html {
+	overflow: auto;
+}
+
+body {
+  background-color: $primary_color;
+  font: {
+    family: Verdana, Helvetica, Arial;
+    size: 14px;
+  }
+  min-width: 100px;
+  overflow: auto;
+}
+
+a {
+  color: #0000FF;
+  img {
+    border: none;
+  }
+}
+
+.clear {
+  clear: both;
+  height: 0;
+  overflow: hidden;
+}
+
+
+#container {
+  position: relative; 
+  width: 75%;
+  display: inline-block;
+  top: 0;
+  float: left;
+  margin: 20px 0;
+  margin-left: 10px;
+  background: #fff;
+  padding: 20px 40px;
+  border: solid 1px black;
+}
+
+#content {
+  position: relative;
+  clear: right;
+  padding-top: 20px;
+}
+
+a {
+	text-decoration: none;
+}

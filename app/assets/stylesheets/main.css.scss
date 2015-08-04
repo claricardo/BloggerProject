@@ -1,0 +1,57 @@
+// Styles for the main frame
+
+.left_container {
+	position: relative;  
+	width: 12%;
+	min-width: 120px;
+	display: inline-block;
+	top: 0;
+	float: left;
+	margin: 20px 10px 20px 5px;
+}
+
+.navbar {
+	position: relative;  
+	display: inline-block;
+	padding: 5px 10px;
+	border-radius: 15px 0 15px 0/ 15px 0 15px 0;
+	background-color: #ccc;
+	border: 2px #888 solid;
+}
+
+.navbar h4 {
+	margin-top: 15px;
+	margin-bottom: 5px;
+}
+
+.navbar h6 {
+	margin-top: 10px;
+	margin-bottom: 2px;
+}
+
+#nav_articles ul {
+	margin-left: 10px;
+}
+
+#nav_tags a {
+	margin-left: 10px;
+}
+
+#nav_authors {
+	padding-bottom: 10px;
+}
+
+#nav_authors a {
+	margin-left: 10px;
+}
+
+#rss-feed {
+	position: relative;
+	display: inline-block;
+	margin-top: 10px;
+	margin-left: 10px;
+}
+
+#rss-img, #rss-link {
+	vertical-align: middle;
+}
