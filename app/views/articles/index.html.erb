@@ -11,6 +11,8 @@
 	<% end %>
 </ul>
 
+<span id="articles-notfound"><%= "No articles found" if @articles.count == 0 %></span>
+
 <% if logged_in? %>
 	<%= link_to "Create a New Article", new_article_path, class: "new_article" %>
 <% end %>
