@@ -20,7 +20,6 @@ class ArticlesController < ApplicationController
 	end
 	
 	
-	#***************************************************************************
 	def show_by_month
 		mon = params[:month].to_i
 		mon_str = '%02d'%(mon + 1)
