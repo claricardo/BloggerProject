@@ -20,11 +20,22 @@ class ArticlesController < ApplicationController
 	end
 	
 	
-	
+	#***************************************************************************
 	def show_by_month
 		mon = params[:month].to_i
+		mon_str = '%02d'%(mon + 1)
 		@month = $months[mon]
-		@articles = Article.where("strftime('%m', created_at) = ?", '%02d'%(mon + 1))
+		
+		@adapter_type = ActiveRecord::Base.connection.adapter_name.downcase.to_sym
+		case @adapter_type
+			when :sqlite
+				@articles = Article.where("strftime('%m', created_at) = ?", mon_str)
+			when :postgresql
+				@articles = Article.where("to_date(created_at, 'MM') = ?", mon_str)
+			else
+				raise NotImplementedError, "Unknown adapter type '#{adapter_type}'"
+		end
+		
 	end
 	
 	def new

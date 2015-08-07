@@ -15,7 +15,9 @@
       <tr>
 		<td><%= link_to article.title, article_path(article) %></td>
         <td><%= article.author.username if article.author != nil%></td>
-        <td id="date"><%= article.created_at.strftime('%F') %></td>
+		<td id="date">
+			<%= article.created_at.strftime('%F') %>
+		</td>
       </tr>
     <% end %>
   </tbody>
