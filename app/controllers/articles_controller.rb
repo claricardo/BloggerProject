@@ -31,7 +31,7 @@ class ArticlesController < ApplicationController
 			when :sqlite
 				@articles = Article.where("strftime('%m', created_at) = ?", mon_str)
 			when :postgresql
-				@articles = Article.where("to_date(created_at, 'MM') = ?", mon_str)
+				@articles = Article.where("to_char(created_at, 'MM') = ?", mon_str)
 			else
 				raise NotImplementedError, "Unknown adapter type '#{adapter_type}'"
 		end
